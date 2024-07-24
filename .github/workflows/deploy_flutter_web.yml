@@ -27,12 +27,13 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-22.04
-    secrets:
-       token: ${{ secrets.access-token }}
+    # secrets:
+    #    token: ${{ secrets.access-token }}
 # If you want to change the directory to run commands
 #    defaults:
 #      run:
 #        working-directory: ./sub-folder
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -43,7 +44,8 @@ jobs:
           # flutter-version-file: pubspec.yaml
 #          flutter-version: '3.3.10'  // uncomment this line if you want to use a specific version of Flutter
       - run: flutter pub get
-
+        with:
+          token: ${{ secrets.access-token }}
       - run: flutter build web --base-href /${{ github.event.repository.name }}/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
