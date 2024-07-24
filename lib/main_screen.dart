@@ -19,7 +19,7 @@ class _MainScreenState extends State<MainScreen> {
       const DashboardView(),
       const PicturesView(),
       const SettingPage(),
-      Container()
+      // Container()
     ];
     super.initState();
   }
