@@ -26,7 +26,6 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-      ref: ${{ github.ref }}
       github_token: ${{ secrets.GITHUB_TOKEN }}
     runs-on: ubuntu-22.04
     # secrets:
