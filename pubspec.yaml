@@ -1,0 +1,29 @@
+name: mg
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.4.3 <4.0.0'
+
+dependencies:
+
+  flutter:
+    sdk: flutter
+
+  dashboard:
+    git: https://github.com/Biogasbottle/mgvison_dashboard.git
+  monitor:
+    path: ../monitor
+  flutter_bloc: ^8.1.6
+  flutter_localizations:
+    sdk: flutter
+  logger: ^2.4.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
