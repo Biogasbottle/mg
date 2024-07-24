@@ -117,9 +117,9 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: HEAD
+      ref: master
       resolved-ref: d8d841c21444581af5dc25fb7df036b575edd22f
-      url: "https://github.com/Biogasbottle/mgvison_dashboard.git"
+      url: "git@github.com:Biogasbottle/mgvison_dashboard.git"
     source: git
     version: "0.0.1"
   equatable:
@@ -348,11 +348,9 @@ packages:
   monitor:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "826fe8156e7aba2ecd5dfcd96fba32c89de5b1b6"
-      url: "https://github.com/Biogasbottle/monitor.git"
-    source: git
+      path: "../monitor"
+      relative: true
+    source: path
     version: "0.0.1"
   nested:
     dependency: transitive

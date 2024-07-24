@@ -27,6 +27,8 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-22.04
+    secrets:
+       token: ${{ secrets.access-token }}
 # If you want to change the directory to run commands
 #    defaults:
 #      run:
@@ -41,6 +43,7 @@ jobs:
           # flutter-version-file: pubspec.yaml
 #          flutter-version: '3.3.10'  // uncomment this line if you want to use a specific version of Flutter
       - run: flutter pub get
+
       - run: flutter build web --base-href /${{ github.event.repository.name }}/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -12,9 +12,16 @@ dependencies:
     sdk: flutter
 
   dashboard:
-    git: https://github.com/Biogasbottle/mgvison_dashboard.git
+    git:
+      url: git@github.com:Biogasbottle/mgvison_dashboard.git
+      ref: master
+  # monitor:
+  #   git:
+  #     url: git@github.com:Biogasbottle/monitor.git
+  #     ref: master
   monitor:
-    git: https://github.com/Biogasbottle/monitor.git
+    path: ../monitor
+  # bloc:
   flutter_bloc: ^8.1.6
   flutter_localizations:
     sdk: flutter
