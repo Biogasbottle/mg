@@ -348,9 +348,11 @@ packages:
   monitor:
     dependency: "direct main"
     description:
-      path: "../monitor"
-      relative: true
-    source: path
+      path: "."
+      ref: master
+      resolved-ref: "0ed4b2edef4342e0dd0a1e6d65767e90a6879318"
+      url: "git@github.com:Biogasbottle/monitor.git"
+    source: git
     version: "0.0.1"
   nested:
     dependency: transitive

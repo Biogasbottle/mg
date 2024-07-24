@@ -15,12 +15,12 @@ dependencies:
     git:
       url: git@github.com:Biogasbottle/mgvison_dashboard.git
       ref: master
-  # monitor:
-  #   git:
-  #     url: git@github.com:Biogasbottle/monitor.git
-  #     ref: master
   monitor:
-    path: ../monitor
+    git:
+      url: git@github.com:Biogasbottle/monitor.git
+      ref: master
+  # monitor:
+  #   path: ../monitor
   # bloc:
   flutter_bloc: ^8.1.6
   flutter_localizations:
