@@ -2,7 +2,7 @@
 name: deploy_flutter_web
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main","master" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
