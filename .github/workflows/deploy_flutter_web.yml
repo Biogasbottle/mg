@@ -21,11 +21,13 @@ concurrency:
 
 
 jobs:
-  flutter_web_deploy:
+  build:
 
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+      ref: ${{ github.ref }}
+      github_token: ${{ secrets.GITHUB_TOKEN }}
     runs-on: ubuntu-22.04
     # secrets:
     #    token: ${{ secrets.access-token }}
@@ -44,9 +46,14 @@ jobs:
           # flutter-version-file: pubspec.yaml
 #          flutter-version: '3.3.10'  // uncomment this line if you want to use a specific version of Flutter
       - run: flutter pub get
-        with:
-          token: ${{ secrets.access-token }}
+
       - run: flutter build web --base-href /${{ github.event.repository.name }}/
+
+
+  pulish:
+   needs: build
+    runs-on: ubuntu-22.04
+    steps:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
