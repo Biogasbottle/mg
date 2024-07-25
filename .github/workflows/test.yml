@@ -12,7 +12,7 @@ jobs:
         with:
           key: ${{ secrets.GITHUB }}
           name: id_rsa # optional
-          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+          known_hosts: ${{ secrets.HOSTS_GITHUB }}
           config: |
             Host github.com:
               HostName git@github.com:Biogasbottle/monitor.git
@@ -23,5 +23,5 @@ jobs:
         uses: actions/checkout@v4
       - name: Run your script
         run: |
-          echo "host: ${{ secrets.KNOWN_HOSTS  }}"
-          git clone --mirror https://github.com/Biogasbottle/monitor.git /home/runner/.pub-cache/_temp/dirJUXNAH
+          echo "host: ${{ secrets.HOSTS_GITHUB  }}"
+          git clone --mirror git@github.com:Biogasbottle/monitor.git /home/runner/.pub-cache/_temp/dirJUXNAH
