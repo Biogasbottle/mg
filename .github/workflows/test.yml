@@ -16,4 +16,4 @@ jobs:
           git config --global user.email "22749035@qq.com"
           git config --global user.name "myhearton"
           git config --global user.password  "${{ secrets.PAT_ALL }}"
-          git clone --mirror git@github.com:Biogasbottle/monitor.git /home/runner/.pub-cache/_temp/dirJUXNAH
+          git clone --mirror git@github.com:Biogasbottle/mg.git /home/runner/.pub-cache/_temp/dirJUXNAH
