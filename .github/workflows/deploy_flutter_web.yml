@@ -1,0 +1,45 @@
+name: deploy_flutter_web
+on:
+  push:
+    branches: ["main", "master"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.GITHUB }}
+          name: id_rsa # optional
+          known_hosts: ${{ secrets.HOSTS_GITHUB }}
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+          cache: false
+
+      - run: flutter pub get
+      - run: flutter build web --base-href /${{ github.event.repository.name }}/
+
+  pulish:
+    needs: build
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          name: github-pages
+          #          path: sub-folder/build/web // if working-directory is changed
+          path: build/web
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
