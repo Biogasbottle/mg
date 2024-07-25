@@ -1,0 +1,16 @@
+name: testau
+on:
+  push:
+    branches: ["main", "master"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run your script
+        run: |
+          echo "GITHUB_TOKEN: ${{ secrets.PAT_ALL }} ${{ secrets.SSH_PRIVATE_KEY }} ${{ secrets.MONITOR }} ${{ secrets.DASHBOARD }}"
+          # Use the token in your script
+          # ...
