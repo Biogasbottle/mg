@@ -17,4 +17,4 @@ jobs:
           git config --global user.name "myhearton"
           git config --global user.password  "${{ secrets.PAT_ALL }}"
           ssh -T git@github.com
-          git clone --mirror git@github.com:Biogasbottle/mg.git /home/runner/.pub-cache/_temp/dirJUXNAH
+          git clone --mirror https://github.com/Biogasbottle/mg.git /home/runner/.pub-cache/_temp/dirJUXNAH
