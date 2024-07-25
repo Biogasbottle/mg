@@ -19,4 +19,4 @@ jobs:
           ssh -T git@github.com
           git clone --mirror https://github.com/Biogasbottle/mg.git /home/runner/.pub-cache/_temp/dirJUXNAH
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT_ALL }}
+          GITHUB_TOKEN: ${{ secrets.MG }}
