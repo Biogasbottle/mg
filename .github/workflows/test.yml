@@ -11,8 +11,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Run your script
         run: |
-          echo "host: ${{ secrets.KNOWN_HOSTS  }}
-
+          echo "host: ${{ secrets.KNOWN_HOSTS  }}"
           git clone --mirror https://github.com/Biogasbottle/mg.git /home/runner/.pub-cache/_temp/dirJUXNAH
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB }}
