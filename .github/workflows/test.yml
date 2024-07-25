@@ -7,11 +7,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.GITHUB }}
+          name: id_rsa # optional
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+          config: |
+            Host github.com:
+              HostName git@github.com:Biogasbottle/monitor.git
+              User git
+              IdentityFile ~/.ssh/id_rsa-bastion
+
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Run your script
         run: |
           echo "host: ${{ secrets.KNOWN_HOSTS  }}"
           git clone --mirror https://github.com/Biogasbottle/monitor.git /home/runner/.pub-cache/_temp/dirJUXNAH
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB }}
