@@ -21,8 +21,11 @@ jobs:
             ${{ secrets.MG }}
             ${{ secrets.MONITOR }}
             ${{ secrets.DASHBOARD }}
+          ssh-auth-sock: /tmp/ssh_agent.sock
 
       - name: Setup Flutter
+        env:
+          ssh-auth-sock: /tmp/ssh_agent.sock
         uses: subosito/flutter-action@v2
         with:
           channel: "stable"
