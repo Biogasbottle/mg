@@ -12,6 +12,6 @@ jobs:
       - name: Run your script
         run: |
           echo "host: ${{ secrets.KNOWN_HOSTS  }}"
-          git clone --mirror git@github.com:Biogasbottle/monitor.git /home/runner/.pub-cache/_temp/dirJUXNAH
+          git clone --mirror https://github.com/Biogasbottle/monitor.git /home/runner/.pub-cache/_temp/dirJUXNAH
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB }}
