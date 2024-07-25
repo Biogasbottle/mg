@@ -15,13 +15,20 @@ jobs:
           known_hosts: ${{ secrets.HOSTS_GITHUB }}
           config: |
             Host github.com:
-              HostName git@github.com:Biogasbottle/monitor.git
+              HostName github.com
               User git
-              IdentityFile ~/.ssh/id_rsa-bastion
+              IdentityFile ~/.ssh/github
 
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Run your script
-        run: |
-          echo "host: ${{ secrets.HOSTS_GITHUB  }}"
-          git clone --mirror git@github.com:Biogasbottle/monitor.git /home/runner/.pub-cache/_temp/dirJUXNAH
+
+      # - name: Run your script
+      #   run: |
+      #     echo "host: ${{ secrets.HOSTS_GITHUB  }}"
+      #     git clone --mirror git@github.com:Biogasbottle/monitor.git /home/runner/.pub-cache/_temp/dirJUXNAH
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+      - run: flutter pub get
+      - run: flutter build web --base-href /${{ github.event.repository.name }}/
