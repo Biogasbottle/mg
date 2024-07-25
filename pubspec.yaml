@@ -18,7 +18,10 @@ dependencies:
     git:
       url: git@github.com:Biogasbottle/monitor.git
       ref: master
-
+  protos_dart:
+    git:
+      url: git@github.com:Biogasbottle/MgVison_protos_dart.git
+      ref: main
   # monitor:
   #   path: ../monitor
   # bloc:
