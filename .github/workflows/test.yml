@@ -13,19 +13,19 @@ jobs:
           key: ${{ secrets.GITHUB }}
           name: id_rsa # optional
           known_hosts: ${{ secrets.HOSTS_GITHUB }}
-          config: |
-            Host github.com:
-              HostName github.com
-              User git
-              IdentityFile ~/.ssh/github
+          # config: |
+          #   Host github.com:
+          #     HostName github.com
+          #     User git
+          #     IdentityFile ~/.ssh/github
 
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # - name: Run your script
-      #   run: |
-      #     echo "host: ${{ secrets.HOSTS_GITHUB  }}"
-      #     git clone --mirror git@github.com:Biogasbottle/monitor.git /home/runner/.pub-cache/_temp/dirJUXNAH
+      - name: test git clone
+        run: |
+          echo "host: ${{ secrets.HOSTS_GITHUB  }}"
+          git clone --mirror git@github.com:Biogasbottle/MgVison_protos_dart.git /home/runner/.pub-cache/_temp/dirJUXNAH
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
