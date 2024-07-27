@@ -10,21 +10,27 @@ dependencies:
   flutter:
     sdk: flutter
 
-  dashboard:
-    git:
-      url: git@github.com:Biogasbottle/mgvison_dashboard.git
-      ref: master
-  monitor:
-    git:
-      url: git@github.com:Biogasbottle/monitor.git
-      ref: master
-  protos_dart:
-    git:
-      url: git@github.com:Biogasbottle/MgVison_protos_dart.git
-      ref: main
+  # dashboard:
+  #   git:
+  #     url: git@github.com:Biogasbottle/mgvison_dashboard.git
+  #     ref: master
   # monitor:
-  #   path: ../monitor
-  # bloc:
+  #   git:
+  #     url: git@github.com:Biogasbottle/monitor.git
+  #     ref: master
+  # protos_dart:
+  #   git:
+  #     url: git@github.com:Biogasbottle/MgVison_protos_dart.git
+  #     ref: main
+  monitor:
+    path: ../monitor
+  dashboard:
+    path: ../dashboard
+
+  protos_dart:
+    path: ../protos_dart
+  commond:
+    path: ../commond
   flutter_bloc: ^8.1.6
   flutter_localizations:
     sdk: flutter

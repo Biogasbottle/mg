@@ -1,11 +1,12 @@
+import 'package:commond/app_menu_cubit.dart';
 import 'package:dashboard/cubits/pictures_cubit.dart';
 import 'package:dashboard/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:monitor/bloc/connection_cubit.dart';
 import 'package:monitor/bloc/monitor_cubit.dart';
 import 'package:monitor/bloc/scheduler_cubit.dart';
-import 'package:monitor/bloc/socket_cubit.dart';
 import 'package:monitor/bloc/theme_cubit.dart';
 import 'package:monitor/socket_api/socket_api.dart';
 
@@ -54,8 +55,8 @@ class MgVisionApp extends StatelessWidget {
           BlocProvider<SchedulerCubit>(
             create: (BuildContext context) => SchedulerCubit(_socketApi),
           ),
-          BlocProvider<SocketCubit>(
-            create: (BuildContext context) => SocketCubit(_socketApi),
+          BlocProvider<ConnectionCubit>(
+            create: (BuildContext context) => ConnectionCubit(_socketApi),
           ),
           BlocProvider(
             create: (_) => DashboardCubit(),

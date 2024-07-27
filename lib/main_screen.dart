@@ -1,3 +1,7 @@
+import 'package:commond/app_menu_cubit.dart';
+import 'package:commond/resource/const_resources.dart';
+import 'package:commond/responsive.dart';
+import 'package:commond/side_menu.dart';
 import 'package:dashboard/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -40,14 +44,10 @@ class _MainScreenState extends State<MainScreen> {
               // We want this side menu only for large screen
               if (Responsive.isDesktop(context))
                 Expanded(
-                  // default flex = 1
-                  // and it takes 1/6 part of the screen
                   child: NavigationMenu(selected: state.index),
                 ),
               Expanded(
-                // It takes 5/6 part of the screen
                 flex: 10,
-                // child: DashboardScreen(),
                 child: destinations[state.index],
               ),
             ],
@@ -71,8 +71,8 @@ class NavigationMenu extends StatelessWidget {
           SizedBox(
             height: 100,
             child: Image.asset(
-              'assets/images/logo.png',
-              package: DashboardTexts.dashboardPackageName,
+              'assets/icons/logo.png',
+              package: ConstTexts.commondName,
             ),
           ),
           DrawerListTile(
